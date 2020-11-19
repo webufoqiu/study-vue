@@ -1,25 +1,20 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <!-- <course-list :courses="courses"></course-list> -->
-  <h2 v-bind:title="title2"> {{title1}} </h2>
-  <Heading :level="3" :title="title2" icon="cart">
-    {{ title1 }}
-  </Heading>
+
   <CourseList :courses="courses"></CourseList>
 </template>
 
 <script>
-// import CourseList from '@/components/CourseList.vue'
+
 
 import CourseList from "@/components/CourseList.vue";
 import { getCourses } from "@/api/course";
-import Heading from "@/components/Heading.vue";
+
 
 export default {
   name: "App",
   components: {
-    Heading,
-    CourseList,
+     CourseList,
  
   },
   data() {

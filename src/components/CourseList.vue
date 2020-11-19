@@ -28,7 +28,7 @@ export default {
   props: {
     courses: {
       type: Array,
-      default: [],
+      default: function(){return []},
     },
   },
   //    局部方式定义过滤器
