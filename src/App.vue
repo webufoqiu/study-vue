@@ -1,26 +1,21 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-
+  <CourseAdd v-model="course" key="course" @myevent="addCourse"></CourseAdd>
   <CourseList :courses="courses"></CourseList>
 </template>
 
 <script>
-
-
 import CourseList from "@/components/CourseList.vue";
 import { getCourses } from "@/api/course";
-
-
+import CourseAdd from  "@/components/CourseAdd.vue"
 export default {
   name: "App",
   components: {
-     CourseList,
- 
+    CourseList,
+    CourseAdd
   },
   data() {
     return {
-      title1: "购物车111111111111",
-      title2: "购物车222222222222",
       course: "",
       courses: [],
       price: 0,
@@ -29,9 +24,14 @@ export default {
   async created() {
     const courses = await getCourses();
     this.courses = courses;
-    // 批量更新商品价格
-    // this.batchUpdate();
   },
+  methods: {
+    addCourse() {
+      this.courses.push(this.course);
+      console.log(this.course);
+      this.course = "";
+    },
+  }
 };
 </script>
 
